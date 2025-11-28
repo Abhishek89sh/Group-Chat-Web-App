@@ -1,0 +1,158 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f0f2f5;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Chat container - now full screen */
+.chat-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+/* Header */
+.header {
+    background: #0084ff;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 2px solid #006edc;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.header p {
+    margin-top: 3px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Messages area */
+.messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: #e8ebef;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Scrollbar */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+.messages::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* Message bubble */
+.message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 15px;
+}
+
+/* You (right side) */
+.me {
+    background: #0084ff;
+    color: white;
+    align-self: flex-end;
+}
+
+/* Others (left side) */
+.other {
+    background: white;
+    border: 1px solid #dcdcdc;
+    align-self: flex-start;
+}
+
+/* Input area fixed at bottom */
+.input-area {
+    display: flex;
+    padding: 12px;
+    background: white;
+    border-top: 2px solid #e0e0e0;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 15px;
+}
+
+.input-area button {
+    margin-left: 10px;
+    padding: 12px 18px;
+    background: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.input-area button:hover {
+    background: #006edc;
+}
+
+
+.msgBox {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #dcdcdc;
+}
+
+.msgBox.me {
+    align-self: flex-end;
+    background: #0084ff;
+    color: white;
+    border: none;
+}
+
+.msgBox.other {
+    align-self: flex-start;
+    background: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.msgBox .user {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.msgBox.me .user {
+    color: #dfefff;
+}
+
+.msgBox .text {
+    font-size: 15px;
+    line-height: 1.3;
+}
