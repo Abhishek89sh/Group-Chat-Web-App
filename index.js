@@ -2,6 +2,12 @@ import express from 'express'
 import http from 'http'
 import path from 'path'
 
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 import { Server } from 'socket.io'
 
 const app = express();
@@ -10,7 +16,7 @@ const server = http.createServer(app);
 
 const io = new Server(server);
 
-app.use(express.static("public/"));
+app.use(express.static("public"));
 
 function updateOnlineUsers(){
     io.emit("online", io.engine.clientsCount)
@@ -24,13 +30,14 @@ io.on('connection', (socket)=>{
     socket.on("disconnect", ()=>updateOnlineUsers());
 })
 
-app.get("/", (req, res)=>{
-    res.sendFile(path.resolve("./public/index.html"));
-})
 
-app.get("/name", (req, res)=>{
-    res.sendFile(path.resolve("./public/name.html"));
-})
+app.get("/name", (req, res) => {
+    res.sendFile(resolve(__dirname, "public", "name.html"));
+});
+
+app.get("/", (req, res) => {
+    res.sendFile(resolve(__dirname, "public", "index.html"));
+});
 
 app.get("/clear", (req, res)=>{
     res.send(`<p>Cleared</p><script>localStorage.clear()</script>`)
